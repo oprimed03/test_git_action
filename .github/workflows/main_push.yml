@@ -19,7 +19,7 @@ jobs:
         run: |
           docker build -t test-git-action .
 
-      - name: Docker Hub 로그인 (선택 사항)
+      - name: Docker Hub 로그인
         run: |
           echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
 
