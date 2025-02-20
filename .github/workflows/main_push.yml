@@ -35,4 +35,6 @@ jobs:
         run: docker images
 
       - name: 가져온 이미지로 컨테이너 실행
-        run: docker run -d --name test-git-action-container -p 8000:8000 dandihara/test-git-action:latest
+        run: |
+          docker run -d --name test-git-action-container -p 8000:8000 dandihara/test-git-action:latest
+          docker ps
