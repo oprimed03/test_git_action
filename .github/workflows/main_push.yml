@@ -14,7 +14,7 @@ jobs:
 
       - name: Docker 이미지 빌드
         run: |
-          docker build -t test-git-action -f testgitacion/Dockerfile
+          docker build -t test-git-action -f testgitacion/Dockerfile .
 
       - name: Docker Hub 로그인 (선택 사항)
         run: |
