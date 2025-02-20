@@ -11,6 +11,9 @@ jobs:
     steps:
       - name: 코드 체크아웃
         uses: actions/checkout@v3
+      
+      - name: Debug - Check files in the workspace
+        run: ls -la
 
       - name: Docker 이미지 빌드
         run: |
