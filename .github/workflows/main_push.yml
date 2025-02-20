@@ -25,5 +25,5 @@ jobs:
 
       - name: Docker Hub에 푸시
         run: |
-          docker tag test-project hbm/test-git-action:latest
+          docker tag test-git-action:latest hbm/test-git-action:latest
           docker push hbm/test-git-action:latest
