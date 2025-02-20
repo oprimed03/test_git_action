@@ -21,20 +21,18 @@ RUN apt-get update && apt-get install -y \
 RUN ln -s /usr/bin/python3.10 /usr/bin/python
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py && rm get-pip.py
 
-# pip 최신 버전으로 업데이트
+# pip 최신 버전 업데이트
 RUN python -m pip install --upgrade pip
 
-# # 1. Python 3.10 기반 이미지 사용
-# FROM python:3.10
-
-# 2. 작업 디렉토리 설정
+# 작업 디렉토리 설정
 WORKDIR /app
 
-# 3. 현재 폴더의 모든 파일을 컨테이너 내부로 복사
+# 현재 폴더의 모든 파일을 컨테이너 내부로 복사
 COPY . .
 
-# 4. 필요한 패키지 설치
+# 필요한 패키지 설치
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install uwsgi[python]
 
-# 5. 컨테이너 시작 시 실행할 명령어 설정
-CMD ["python", "manage.py", "runserver"]
+#  컨테이너 시작 시 실행할 명령어 설정
+CMD ["uwsgi", "--ini", "--uid", "www-data", "uwsgi.ini"]
