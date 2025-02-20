@@ -35,4 +35,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install uwsgi[python]
 
 #  컨테이너 시작 시 실행할 명령어 설정
-CMD ["uwsgi", "--ini", "--uid", "www-data", "uwsgi.ini"]
+CMD ["uwsgi", "--ini", "uwsgi.ini"]
