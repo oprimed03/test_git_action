@@ -40,8 +40,8 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            sudo apt update
-            sudo apt install -y docker.io
+            sudo yum update
+            sudo yum install -y docker.io
             docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/test-git-action:latest
             docker images
             docker stop test-git-action || true
