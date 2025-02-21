@@ -40,11 +40,11 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/my-app:latest
+            docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/test-git-action:latest
             docker images
-            docker stop my-app || true
-            docker rm my-app || true
-            docker run -d --name my-app -p 80:8000 ${{ secrets.DOCKER_USERNAME }}/my-app:latest
+            docker stop test-git-action || true
+            docker rm test-git-action || true
+            docker run -d --name test-git-action -p 80:8000 ${{ secrets.DOCKER_USERNAME }}/test-git-action:latest
 
       # - name: 가져온 이미지로 컨테이너 실행
       #   run: |
