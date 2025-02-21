@@ -40,8 +40,9 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            sudo yum update
-            sudo yum install -y docker-ce docker-ce-cli containerd.io
+            sudo amazon-linux-extras install docker
+            sudo systemctl start docker
+            sudo systemctl enable docker
             docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/test-git-action:latest
             docker images
             docker stop test-git-action || true
